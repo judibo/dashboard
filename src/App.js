@@ -1,28 +1,44 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import List from './components/To-do/List';
+import ListItemForm from './components/To-do/ListItemForm';
+import Watch from './components/Watch/Watch';
 
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
+  constructor(props){
+		super(props)
+		this.state = {
+			items: []
+		}
+		this.handleAddItem = this.handleAddItem.bind(this);
+		this.handleRemoveItem = this.handleRemoveItem.bind(this);
+
+	}
+	handleAddItem(item) {
+		var items = this.state.items.slice();
+		items.push(item);
+		this.setState({items: items}) //setState is an async Function
+	}
+	handleRemoveItem(item){
+		var items = this.state.items.slice();
+		var index = items.indexOf(item);
+		items.splice(index, 1)
+		this.setState({ items: items })
+	}
+	
+  	render() {
+    	return (
+		<div className="App">
+			<div className="Todo">
+				<ListItemForm handleSubmit={this.handleAddItem}/>
+				<List handleRemove={this.handleRemoveItem} items={this.state.items} />
+			</div>
+			<div className="Time">
+				<Watch />
+			</div>
+		</div>
+		);
+  	}
 }
 
 export default App;

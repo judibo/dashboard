@@ -1,0 +1,13 @@
+.Watch {
+    background-color: #fff;
+    height: 300px;
+}
+
+.Clock {
+    margin: auto;
+}
+
+.Watch>h3 {
+    margin: 0;
+    padding: 40px;
+}
