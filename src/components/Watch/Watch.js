@@ -3,13 +3,13 @@ import './Watch.css';
 import Clock from 'react-clock';
 
 class Watch extends Component {
-    
     constructor(props) {
         super(props)
         this.state = {
             date: new Date(),
         }
     }
+    
     componentDidMount() {
         setInterval(
             () => this.setState({ date: new Date() }),
@@ -21,6 +21,7 @@ class Watch extends Component {
         return (
             <div className="Watch">
                 <h3>Current time:</h3>
+                <p>{new Date().toLocaleDateString()}</p>
                 <Clock value={this.state.date} className="Clock"/>
             </div>
         );
