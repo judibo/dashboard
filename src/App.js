@@ -3,16 +3,16 @@ import './App.css';
 import List from './components/To-do/List';
 import ListItemForm from './components/To-do/ListItemForm';
 import Watch from './components/Watch/Watch';
+import Weather from './components/Weather/Weather';
 
 class App extends Component {
-  constructor(props){
+	constructor(props){
 		super(props)
 		this.state = {
 			items: []
 		}
 		this.handleAddItem = this.handleAddItem.bind(this);
 		this.handleRemoveItem = this.handleRemoveItem.bind(this);
-
 	}
 	handleAddItem(item) {
 		var items = this.state.items.slice();
@@ -28,15 +28,22 @@ class App extends Component {
 	
   	render() {
     	return (
-		<div className="App">
-			<div className="Todo">
-				<ListItemForm handleSubmit={this.handleAddItem}/>
-				<List handleRemove={this.handleRemoveItem} items={this.state.items} />
+		<section>
+			<div className="App">
+				<header className="App-header">Dashboard</header>
+				<div className="Todo">
+					<ListItemForm handleSubmit={this.handleAddItem}/>
+					<List handleRemove={this.handleRemoveItem} items={this.state.items} />
+				</div>
+				<div className="Time">
+					<Watch />
+				</div>
+				<div className="Weather">
+					<Weather />
+				</div>
 			</div>
-			<div className="Time">
-				<Watch />
-			</div>
-		</div>
+		</section>
+
 		);
   	}
 }

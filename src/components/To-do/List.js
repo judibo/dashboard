@@ -8,9 +8,6 @@ class List extends Component {
         return (
           <table className="List">
             <tbody>
-              <tr>
-                  <th>To Do:</th>
-              </tr>
               { mappedItems }
             </tbody>
           </table>

@@ -1,0 +1,9 @@
+.BtnWeather {
+    height: 40px;
+    background: black;
+    color: white;
+    width: 71%;
+    font-size: 15px;
+    outline: none;
+    margin-top: 20px;
+}

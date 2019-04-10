@@ -14,7 +14,8 @@ class ListItemForm extends Component {
     render() {
         return (
             <div className="ListItemForm">
-                <form onSubmit={this.handleSubmit}>
+                <h3>To Do:</h3>
+                <form onSubmit={this.handleSubmit} className="ListForm">
                     <input type="text" name="todoItem" placeholder="Add item"/>
                     <input type="submit" value="Add Item" />
                 </form>
